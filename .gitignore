@@ -7,7 +7,7 @@ __pycache__/
 *.so
 
 #Manually code Files - R
-config.ini 
+./modules/scrapping/config.ini 
 
 # Distribution / packaging
 .Python
