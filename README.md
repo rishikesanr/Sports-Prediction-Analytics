@@ -1,8 +1,8 @@
 # English-Premier-League-Analytics
-The idea is to understand the sentiment of fans in twitter before and after top EPL matches using hashtags. For instance, Liverpool vs Manchester City (#LIVMCI, #YNWA, #Haaland etc)
+Scrapping EPL Soccer/European Football data based on match hashtags from Twitter. Subsequently, after tidying the data, build a high level analytics insights on the data collected. 
 
 
-Follow these steps for data scrapping from Twitter 
+Follow these steps for data scrapping from Twitter (TBU). 
 
 1. Go to the github remote directory
 2. source ./analytics/bin/activate #Activate the Python env
