@@ -1,5 +1,5 @@
 # English-Premier-League-Analytics
-Scrapping EPL Soccer/European Football data based on match hashtags from Twitter. Subsequently, after tidying the data, build a high level analytics insights on the data collected. 
+Scrapping EPL Soccer/European Football data based on match hashtags from Twitter. Subsequently, after tidying the data, build a high level analytics insights on the data collected. EPL match dynamic prediction based on twitter (X) sentiment. 
 
 
 Follow these steps for data scrapping from Twitter (TBU). 
