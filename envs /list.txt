@@ -1,3 +1,0 @@
-tweepy
-configparser
-pandas
