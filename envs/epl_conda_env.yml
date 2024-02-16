@@ -7,4 +7,5 @@ dependencies:
   - pandas
   - scikit-learn
   - bs4
+  - selenium
   # Add more packages as needed
