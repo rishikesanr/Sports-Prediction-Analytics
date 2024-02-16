@@ -1,10 +1,4 @@
-# English-Premier-League-Analytics
-Scrapping EPL Soccer/European Football data based on match hashtags from Twitter. Subsequently, after tidying the data, build a high level analytics insights on the data collected. EPL match dynamic prediction based on twitter (X) sentiment. 
+The idea of this project is to predict the win/loss proabability of Football (Soccer) teams in Engaland. The core of the analysis is to understand and explore the why fans could be the best analyst of the sport. 
 
+A microservices approch to be followed for the prodcut implementation. 
 
-Follow these steps for data scrapping from Twitter (TBU). 
-
-1. Go to the github remote directory
-2. source ./analytics/bin/activate #Activate the Python env
-3. pip3 install --list ./files/envs.list #Install all the required envs
-4. python3 ./modules/scrapping/my_tweepy.py
