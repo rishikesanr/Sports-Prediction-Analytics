@@ -18,7 +18,7 @@ reddit = praw.Reddit(user_agent=os.getenv('USER_AGENT'),
 subreddit = reddit.subreddit("PremierLeague")
 
 #Define the match here 
-match = "Liverpool vs Chelsea" #This will be an input from the user through main, TBU 
+match = "Liverpool vs Manchester City" #This will be an input from the user through main, TBU 
 teams = [team.lower() for team in match.split(' vs ')]
 
 #Get the current time and subtract 3 days from it, as we'll only be scraping the last 3 days of data
