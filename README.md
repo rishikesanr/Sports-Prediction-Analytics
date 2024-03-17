@@ -6,5 +6,11 @@ Currently in the initial stages of developing the prediction model which investi
 
 This exploration holds the potential to yield valuable insights that could impact betting outcomes.
 
+Model 1 - A simple sentiment approach using Bag of Words concept
+
+Model 2 - Sentiment association with Word2Vec
+
+Model 3 - Semtiment Analysis with LLM Models
+
 A microservices approch to be followed for the prodcut implementation. 
 
