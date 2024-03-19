@@ -8,4 +8,7 @@ dependencies:
   - scikit-learn
   - bs4
   - selenium
+  - python-dotenv
+  - praw
+  - os
   # Add more packages as needed
