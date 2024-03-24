@@ -14,5 +14,7 @@ Model 3 - A simple ensmeble sentiment model approach using Bag of Words from bot
 
 Model 4 - Fine tuning open LLMs (llama2 etc) for sentiment analysis
 
+Model 5 - Using Retrieval-augmented generation (RAG) with LLMs for sentiment analysis 
+
 A microservices approch to be followed for the prodcut implementation. 
 
