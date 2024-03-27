@@ -6,7 +6,7 @@ Currently in the initial stages of developing the prediction model which investi
 
 This exploration holds the potential to yield valuable insights that could impact betting outcomes.
 
-Model 1 - A simple sentiment approach using Bag of Words from Fans 
+Model 1 - A simple sentiment approach using Bag of Words from Fans (Automation Progression Going On..)
 
 Model 2 - A simple sentiment model approach using Bag of Words from Critics 
 
