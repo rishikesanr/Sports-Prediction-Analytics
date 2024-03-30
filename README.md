@@ -1,6 +1,6 @@
 ## Active Project
 
-The idea of this project is to predict the win/loss odds of teams in a sports match. The core of the analysis is to understand and explore the why fans could be the best analyst of the sport, and augment the odds of the sport. 
+The idea of this project is to predict the win/loss odds of teams in a sports match. The core of the analysis is to understand and explore the why fans could be the best analyst of the sport, and augment the information on the sport before betting.
 
 Pre-requisities:<br><br>
 -- MongoDB is installed, and  open to all requests at port: 27017<br>
