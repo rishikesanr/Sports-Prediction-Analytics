@@ -1,12 +1,15 @@
 import argparse
-from scrapers.scraper_reddit import RedditWebsiteScraper
-
-def main(url):
-    custom_website_scraper = RedditWebsiteScraper(url)
-    custom_website_scraper.scrape_with_beautiful_soup()
+from scraping.scraper_reddit import RedditScraper
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Scrape a website.')
-    parser.add_argument('url', help='The URL of the website to scrape')
+    parser = argparse.ArgumentParser(description='Welcome to sports Prediction. Please provide the following arguments to get started. \
+                                     Check the docs for more information')
+    parser.add_argument('league', help='Name of the league')
+    parser.add_argument('match', 
+                        help='Match Details (Example: "Liverpool vs United")'
+                        )
+
     args = parser.parse_args()
-    main(args.url)
+
+    scraper = RedditScraper(args.league, args.match)
+    scraper.scrape()
