@@ -11,7 +11,8 @@ Commands to setup
 
 ```bash
 git clone https://github.com/rishikesanr/Sports-Prediction-Analytics.git
-conda env create -f environment.yml
+cd <path-to-current-repository>
+conda env create -f ./envs/environment.yml
 ```
 
 Commands to do the sports prediction
