@@ -2,8 +2,8 @@
 
 The idea of this project is to predict the win/loss odds of teams in a sports match. The core of the analysis is to understand and explore the why fans could be the best analyst of the sport, and augment the odds of the sport. 
 
-Pre-requisities:<br>
--- Install MongoDB, and make sure it's open to all requests at port: 27017<br>
+Pre-requisities:<br><br>
+-- MongoDB is installed, and  open to all requests at port: 27017<br>
 -- Miniconda is installed <br>
 
 Command to scrape data for any sports match 
