@@ -1,8 +1,16 @@
 ## Active Project
 
-The idea of this project is to predict the win/loss probability of Football (Soccer) teams in Engaland. The core of the analysis is to understand and explore the why fans could be the best analyst of the sport. 
+The idea of this project is to predict the win/loss odds of teams in a sports match. The core of the analysis is to understand and explore the why fans could be the best analyst of the sport, and augment the odds of the sport. 
 
-Currently in the initial stages of developing the prediction model which investigates the correlation between online sentiments and match outcomes to uncover any causal inferences. By understanding how the polarity and other factors of online feelings relates to match results, and to enhance the prediction accuracy.
+Pre-requisities:
+-- Install MongoDB, and make sure it's open to all requests at port: 27017
+-- Miniconda is installed 
+Command to scrape data for any sports match 
+
+```bash
+
+python3 main.py PremierLeague "Liverpool vs Brighton"
+python3 main.py mlb "Yankees vs Mets"
 
 This exploration holds the potential to yield valuable insights that could impact betting outcomes.
 
