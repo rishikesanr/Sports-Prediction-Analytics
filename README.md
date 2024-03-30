@@ -5,11 +5,19 @@ The idea of this project is to predict the win/loss odds of teams in a sports ma
 Pre-requisities:<br><br>
 -- MongoDB is installed, and  open to all requests at port: 27017<br>
 -- Miniconda is installed <br>
+-- .env created for API credentials (Reddit,.etc). Check docs for more information! 
 
-Command to scrape data for any sports match 
+Commands to setup 
 
 ```bash
+git clone https://github.com/rishikesanr/Sports-Prediction-Analytics.git
+conda env create -f environment.yml
+```
 
+Commands to do the sports prediction
+
+```bash
+conda activate sports_analytics
 python3 main.py PremierLeague "Liverpool vs Brighton"
 python3 main.py mlb "Yankees vs Mets"
 ```
