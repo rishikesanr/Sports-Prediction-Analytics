@@ -1,6 +1,7 @@
 import os
 import time
 from connectors.mongodb import MongoDB
+from utils import constants as const
 from datetime import datetime, timedelta
 from pymongo import MongoClient
 import praw
@@ -22,17 +23,17 @@ class RedditScraper:
                                   client_secret=os.getenv('CLIENT_SECRET'),
                                   username=os.getenv('USERNAME'),
                                   password=os.getenv('PASSWORD'))
-        self.subreddit = self.reddit.subreddit(league_name)
+        self.subreddit = self.reddit.subreddit(self.league_name)
 
     def scrape(self):
         keywords = [team.lower() for team in self.match.split(' vs ')]
-        three_days_ago = (datetime.now() - timedelta(days=3)).timestamp()
-        for post in self.subreddit.new(limit=300):
-            if post.created_utc < three_days_ago:
+        time_ago = (datetime.now() - timedelta(days=const.SCRAPING_TIMEFRAME_IN_DAYS)).timestamp()
+        for post in self.subreddit.new(limit=const.NEW_POST_LIMIT):
+            if post.created_utc < time_ago:
                 break
             title = post.title.lower()
             if any(key in title for key in keywords):
-                time.sleep(5)
+                time.sleep(const.SLEEP_TIME_IN_SEC)
                 post_obj = self.reddit.submission(id=post.id)
                 title = post_obj.title
                 description = post_obj.selftext
