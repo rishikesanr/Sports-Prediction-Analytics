@@ -28,7 +28,7 @@ This exploration holds the potential to yield valuable insights that could impac
 Model 1 - A simple sentiment approach using Bag of Words from Fans (Automation Progression Going On..)
 (Optional. A simple sentiment model approach using Bag of Words from Critics, A simple ensmeble sentiment model approach using Bag of Words from both Fans& Critics)
 
-Model 2 - Applying PyTorch/TensorFlow/TextBlob frameworks for generating sentiment scores
+Model 2 - Applying TensorFlow/TextBlob frameworks for generating sentiment scores
 
 Model 3 - Fine tuning open LLMs (llama2 etc) for sentiment analysis 
 
