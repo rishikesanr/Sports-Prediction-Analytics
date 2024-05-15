@@ -30,7 +30,7 @@ Model 1 - A simple sentiment approach using Bag of Words from Fans (Automation P
 
 Model 2 - Applying PyTorch/TextBlob frameworks for generating sentiment scores
 
-Model 3 - Fine tuning open LLMs (llama2 etc) for sentiment analysis 
+Model 3 - Fine tuning open LLMs (Llama2) for sentiment analysis 
 
 A microservices approch to be followed for the prodcut implementation(MongoDB, PostgresSQL, Grafana, and Airflow). 
 
