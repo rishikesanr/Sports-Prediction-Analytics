@@ -25,7 +25,7 @@ python3 main.py mlb "Yankees vs Mets"
 
 This exploration holds the potential to yield valuable insights that could impact betting outcomes.
 
-Model 1 - A simple sentiment approach using Bag of Words from Fans (Automation Progression Going On..)
+Model 1 - A simple sentiment approach using Bag of Words from Fans
 (Optional. A simple sentiment model approach using Bag of Words from Critics, A simple ensmeble sentiment model approach using Bag of Words from both Fans& Critics)
 
 Model 2 - Applying PyTorch/TextBlob frameworks for generating sentiment scores
