@@ -28,14 +28,10 @@ class BagOfWords:
         sentiment_props['%positive'] = sentiment_props['positive'] / sentiment_props['total'] * 100
         sentiment_props['%negative'] = sentiment_props['negative'] / sentiment_props['total'] * 100
         sentiment_props['%neutral'] = sentiment_props['neutral'] / sentiment_props['total'] * 100
-        sentiment_props['win_percentage'] = sentiment_props['%positive'] / sentiment_props['total'] * 100
+        # sentiment_props['win_percentage'] = (sentiment_props['positive'] /sentiment_props['total'] )* 100
         
-        total_win_percentage = sentiment_props['win_percentage'].sum()
-        sentiment_props['normalized_win_percentage'] = sentiment_props['win_percentage'] / total_win_percentage * 100
+        # total_win_percentage = sentiment_props['positive'].sum() / sentiment_props['total'].sum() * 100
+        # sentiment_props['normalized_win_percentage'] = sentiment_props['win_percentage'] / total_win_percentage * 100
         
         return sentiment_props
 
-# Example usage:
-# data_fans = processor.process_data(match)
-# bag_of_words = BagOfWords()
-# sentiment_props = bag_of_words.analyze(data_fans)
