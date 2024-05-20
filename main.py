@@ -39,3 +39,5 @@ if __name__ == "__main__":
     sentiment_props = textblob.analyze(data_fans)
 
     print(sentiment_props)
+
+    #Add sink connectors to store the data in a database
