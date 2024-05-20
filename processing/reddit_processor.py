@@ -17,6 +17,7 @@ class RedditProcessor:
     def __init__(self, db_name, collection_name):
         self.db_name = db_name
         self.collection_name = f"{collection_name.lower().replace(' ','-')}-{datetime.now().date()}"
+        # self.collection_name = "arsenal-vs-everton-2024-05-19" # for testing
         self.mongo = MongoDB(self.db_name, self.collection_name)
         self.client, self.db, self.collection = self.mongo.connect()
 

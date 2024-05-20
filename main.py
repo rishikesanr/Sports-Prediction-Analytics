@@ -2,6 +2,7 @@ import argparse
 from scraping.scraper_reddit import RedditScraper
 from processing.reddit_processor import RedditProcessor
 from analytics.bagofwords import BagOfWords
+from analytics.textblob_sentiment import TextBlobSentiment
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Welcome to sports Prediction. Please provide the following arguments to get started. \
@@ -27,8 +28,14 @@ if __name__ == "__main__":
     if 'message' not in data_fans.columns:
         raise ValueError("The 'message' column is missing from the processed data. Check the transformation logic.")
 
-    # Analyze the processed data
+    # Analyze using the custom bag of words method
     bag_of_words = BagOfWords()
     sentiment_props = bag_of_words.analyze(data_fans)
+
+    print(sentiment_props)
+
+    # Analyze using textblob data
+    textblob = TextBlobSentiment()
+    sentiment_props = textblob.analyze(data_fans)
 
     print(sentiment_props)
