@@ -3,6 +3,8 @@ from scraping.scraper_reddit import RedditScraper
 from processing.reddit_processor import RedditProcessor
 from analytics.bagofwords import BagOfWords
 from analytics.textblob_sentiment import TextBlobSentiment
+from connectors.postgresql import PostgreSQL
+from utils.credentials import sentiment_pg_credentials
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Welcome to sports Prediction. Please provide the following arguments to get started. \
@@ -36,8 +38,14 @@ if __name__ == "__main__":
 
     # Analyze using textblob data
     textblob = TextBlobSentiment()
-    sentiment_props = textblob.analyze(data_fans)
+    textblob_sentiment_summary = textblob.analyze(data_fans)
 
-    print(sentiment_props)
+    print(textblob_sentiment_summary)
 
     #Add sink connectors to store the data in a database
+        # Insert results into PostgreSQL
+    db = PostgreSQL(**sentiment_pg_credentials)
+    db.connect()
+    db.insert_data(sentiment_props, 'BagOfWords')
+    db.insert_data(textblob_sentiment_summary, 'TextBlob')
+    db.close()
