@@ -3,6 +3,7 @@ from scraping.scraper_reddit import RedditScraper
 from processing.reddit_processor import RedditProcessor
 from analytics.bagofwords import BagOfWords
 from analytics.textblob_sentiment import TextBlobSentiment
+from analytics.bert_sentiment import BertSentiment
 from connectors.postgresql import PostgreSQL
 from utils.credentials import sentiment_pg_credentials
 
@@ -47,10 +48,17 @@ if __name__ == "__main__":
 
     print(textblob_sentiment_summary)
 
-    #Add sink connectors to store the data in a database
-        # Insert results into PostgreSQL
+
+    # Analyze the processed data using BERT Sentiment
+    bert_sentiment = BertSentiment()
+    bert_sentiment_summary = bert_sentiment.analyze(data_fans)
+    print("BERT Sentiment Analysis Results:")
+    print(bert_sentiment_summary)
+
+    # Insert results into PostgreSQL
     db = PostgreSQL(**sentiment_pg_credentials)
     db.connect()
     db.insert_data(sentiment_props, 'BagOfWords')
     db.insert_data(textblob_sentiment_summary, 'TextBlob')
+    db.insert_data(bert_sentiment_summary, 'Bert')
     db.close()
