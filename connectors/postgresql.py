@@ -38,7 +38,7 @@ class PostgreSQL:
         '''
         Method to insert data into the PostgreSQL database.
         '''
-        
+
         for team, row in data.iterrows():
             self.cursor.execute(f"""
                 INSERT INTO {self.table} 
@@ -49,3 +49,4 @@ class PostgreSQL:
                 row['%positive'], row['%negative'], row['%neutral']
             ))
         self.conn.commit()
+œ
