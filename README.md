@@ -32,5 +32,7 @@ Model 2 - Applying PyTorch/TextBlob frameworks for generating sentiment scores
 
 Model 3 - Fine tuning open LLMs (Llama2, BERT) for sentiment analysis (At the present, a non-trained BERT model in implemented using a untrained classifier)
 
+Model 4 - Ensemble of Model 1,2, and 3
+
 A microservices will be followed for the prodcut implementation(MongoDB, PostgresSQL, Grafana(public host), and Airflow). 
 
