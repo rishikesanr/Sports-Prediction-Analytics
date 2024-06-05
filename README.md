@@ -19,7 +19,7 @@ Restart your terminal, and check the miniconda version
 conda --version
 ```
 
--- .env created for API credentials (Reddit,.etc). Check docs for more information! 
+-- .env created for API credentials (Reddit,.etc). Check docs for more information! (It is enabled by default for initial usage, however strongly recommended to create your own Reddit credential, and store it in ./scraping/.env)<br>
 
 Commands to setup 
 
