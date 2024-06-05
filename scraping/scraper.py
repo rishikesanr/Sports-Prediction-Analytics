@@ -7,6 +7,11 @@ class WebsiteScraper:
     def __init__(self, url):
         self.url = url
 
+    #Add a input timeframe function for all the connectors 
+    def get_timeframe(self):
+        '''
+        '''
+
     def scrape_with_beautiful_soup(self):
         '''
         Scrap with Beautiful Soup
