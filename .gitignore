@@ -124,7 +124,7 @@ celerybeat.pid
 
 # Environments
 .env
-scraping/.env
+#scraping/.env
 .venv
 env/
 venv/
