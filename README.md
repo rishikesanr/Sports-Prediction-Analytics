@@ -31,7 +31,7 @@ conda env create -f ./envs/environment.yml
 Commands to do the sports prediction
 
 ```bash
-conda activate sports_analytics
+conda activate sports-analytics
 python3 main.py PremierLeague "Liverpool vs Brighton"
 python3 main.py mlb "Yankees vs Mets"
 ```
