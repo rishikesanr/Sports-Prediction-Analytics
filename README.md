@@ -10,7 +10,6 @@ Pre-requisities:<br><br>
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew install --cask miniconda
-brew install --cask miniconda
 conda init
 ```
 Restart your terminal, and check the miniconda version 
