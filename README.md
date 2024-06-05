@@ -4,8 +4,8 @@ The idea of this project is to predict the win/loss odds of teams in a sports ma
 
 Pre-requisities:<br><br>
 -- MongoDB is installed, and  open to all requests at port: 27017<br>
--- Postgresql is installed, and open to all requests at port: 5432 (Optional, if Grafana is inactive, credentials can also be changed using util files)
--- Miniconda is installed <br> (For mac, follow the below miniconda installation using brew)
+-- Postgresql is installed, and open to all requests at port: 5432 (Optional, if Grafana is inactive, credentials can also be changed using util files)<br>
+-- Miniconda is installed <br><br> (For mac, follow the below miniconda installation using brew)<br>
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
