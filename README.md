@@ -2,7 +2,7 @@
 
 The idea of this project is to predict the win/loss odds of teams in a sports match. The core of the analysis is to understand and explore the why fans could be the best analyst of the sport, and augment the information on the sport before betting.
 
-Pre-requisities:<br><br>
+### Pre-requisities:<br><br>
 -- MongoDB is installed, and  open to all requests at port: 27017<br>
 -- Postgresql is installed, and open to all requests at port: 5432 (Optional, if Grafana is inactive, credentials can also be changed using util files)<br>
 -- Miniconda is installed <br><br> (For mac, follow the below miniconda installation using brew)<br>
@@ -29,7 +29,7 @@ PASSWORD=***********
 
 (In case, you are having difficulties creating a Reddit API credential, please reach out to me so I can give you my .env credetials for testing) <br>
 
-Commands to setup 
+### Commands to setup 
 
 ```bash
 git clone https://github.com/rishikesanr/Sports-Prediction-Analytics.git
@@ -37,7 +37,7 @@ cd <path-to-current-repository>
 conda env create -f ./envs/environment.yml
 ```
 
-Commands to do the sports prediction
+### Commands to do the sports prediction
 
 ```bash
 conda activate sports-analytics
