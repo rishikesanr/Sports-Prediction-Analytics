@@ -18,7 +18,9 @@ Restart your terminal, and check the miniconda version
 conda --version
 ```
 
--- Absolute must for Reddit scrapping: .env to be created for API credentials (Reddit,.etc). Check docs for more information! 
+-- Absolute must for Reddit scrapping: .env to be created for API credentials (Reddit,.etc). Check docs for more information!<br>
+(In case, you are having difficulties creating a Reddit API credential, please reach out to me so I can give you my .env credetials for testing) <br>
+
 ```
 USER_AGENT=Mozilla/5.0
 CLIENT_ID=***********
@@ -27,7 +29,7 @@ USERNAME=***********
 PASSWORD=***********
 ```
 
-(In case, you are having difficulties creating a Reddit API credential, please reach out to me so I can give you my .env credetials for testing) <br>
+
 
 ### Commands to setup 
 
