@@ -4,7 +4,17 @@ The idea of this project is to predict the win/loss odds of teams in a sports ma
 
 Pre-requisities:<br><br>
 -- MongoDB is installed, and  open to all requests at port: 27017<br>
--- Miniconda is installed <br>
+-- Miniconda is installed <br> (For mac, follow the below miniconda installation using brew)
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install --cask miniconda
+brew install --cask miniconda
+conda init
+#Restart you terminal
+conda --version
+```
+
 -- .env created for API credentials (Reddit,.etc). Check docs for more information! 
 
 Commands to setup 
