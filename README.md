@@ -4,6 +4,7 @@ The idea of this project is to predict the win/loss odds of teams in a sports ma
 
 Pre-requisities:<br><br>
 -- MongoDB is installed, and  open to all requests at port: 27017<br>
+-- Postgresql is installed, and open to all requests at port: 5432 (Optional, if Grafana is inactive, credentials can also be changed using util files)
 -- Miniconda is installed <br> (For mac, follow the below miniconda installation using brew)
 
 ```bash
@@ -11,7 +12,10 @@ Pre-requisities:<br><br>
 brew install --cask miniconda
 brew install --cask miniconda
 conda init
-#Restart you terminal
+```
+Restart your terminal, and check the miniconda version 
+
+```
 conda --version
 ```
 
