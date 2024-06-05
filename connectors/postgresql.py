@@ -38,14 +38,23 @@ class PostgreSQL:
         '''
         Method to insert data into the PostgreSQL database.
         '''
-        
         for team, row in data.iterrows():
+            # Ensure missing keys are set to 0
+            total = row.get('total', 0)
+            positive = row.get('positive', 0)
+            negative = row.get('negative', 0)
+            neutral = row.get('neutral', 0)
+            percent_positive = row.get('%positive', 0)
+            percent_negative = row.get('%negative', 0)
+            percent_neutral = row.get('%neutral', 0)
+            
             self.cursor.execute(f"""
                 INSERT INTO {self.table} 
                 (team, model, total, positive, negative, neutral, percent_positive, percent_negative, percent_neutral) 
                 VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
                 """, (
-                team, model_name, row['total'], row['positive'], row['negative'], row['neutral'],
-                row['%positive'], row['%negative'], row['%neutral']
+                team, model_name, total, positive, negative, neutral,
+                percent_positive, percent_negative, percent_neutral
             ))
         self.conn.commit()
+

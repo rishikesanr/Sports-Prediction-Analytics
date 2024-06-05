@@ -18,16 +18,33 @@ class BagOfWords:
         
         for word, score in sentiment_words.items():
             df_sentiment_scores[word] *= score
-        
+
+        print("\n\mData:",data_fans,"\n\n")
+              
         data_fans = pd.concat([data_fans, df_sentiment_scores], axis=1)
         data_fans['sentiment_score'] = data_fans.iloc[:, 2:].sum(axis=1)
-        data_fans['sentiment_label'] = data_fans['sentiment_score'].apply(lambda x: "positive" if x > 0 else ("negative" if x < 0 else "neutral"))
-        
+        # Apply sentiment labels
+        data_fans['sentiment_label'] = data_fans['sentiment_score'].apply(
+            lambda x: "positive" if x > 0 else ("negative" if x < 0 else "neutral")
+        )
+
+        # Group by team and sentiment label, count occurrences
         sentiment_props = data_fans.groupby('team')['sentiment_label'].value_counts().unstack().fillna(0)
+
+        # Calculate total counts
         sentiment_props['total'] = sentiment_props.sum(axis=1)
-        sentiment_props['%positive'] = sentiment_props['positive'] / sentiment_props['total'] * 100
-        sentiment_props['%negative'] = sentiment_props['negative'] / sentiment_props['total'] * 100
-        sentiment_props['%neutral'] = sentiment_props['neutral'] / sentiment_props['total'] * 100
+
+        # Calculate percentage columns, using .get() to provide a default value of 0 if the column is missing
+        sentiment_props['%positive'] = sentiment_props.get('positive', 0) / sentiment_props['total'] * 100
+        sentiment_props['%negative'] = sentiment_props.get('negative', 0) / sentiment_props['total'] * 100
+        sentiment_props['%neutral'] = sentiment_props.get('neutral', 0) / sentiment_props['total'] * 100
+
+        # Optional: Ensure all percentage columns are present
+        sentiment_props['%positive'] = sentiment_props['%positive'].fillna(0)
+        sentiment_props['%negative'] = sentiment_props['%negative'].fillna(0)
+        sentiment_props['%neutral'] = sentiment_props['%neutral'].fillna(0)
+
+        print(sentiment_props)
         # sentiment_props['win_percentage'] = (sentiment_props['positive'] /sentiment_props['total'] )* 100
         
         # total_win_percentage = sentiment_props['positive'].sum() / sentiment_props['total'].sum() * 100
