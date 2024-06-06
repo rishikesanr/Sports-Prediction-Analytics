@@ -27,7 +27,7 @@ if __name__ == "__main__":
     data_fans = processor.process_data(args.collection_name)
 
     # Add debug print to check the structure
-    print(data_fans.head())
+    print("\n",data_fans.head())
 
     if 'message' not in data_fans.columns:
         raise ValueError("The 'message' column is missing from the processed data. Check the transformation logic.")
@@ -40,24 +40,27 @@ if __name__ == "__main__":
     # Analyze using the custom bag of words method
     bag_of_words = BagOfWords()
     sentiment_props = bag_of_words.analyze(data_fans)
-
+    print("\nBag of Words Sentiment Analysis Results:")
     print(sentiment_props)
 
     # Analyze using textblob data
     textblob = TextBlobSentiment()
     textblob_sentiment_summary = textblob.analyze(data_fans)
-
+    print("\nTextblob Sentiment Analysis Results:")
     print(textblob_sentiment_summary)
 
 
     # Analyze the processed data using BERT Sentiment
     bert_sentiment = BertSentiment()
     bert_sentiment_summary = bert_sentiment.analyze(data_fans)
-    print("BERT Sentiment Analysis Results:")
+    print("\nBERT Sentiment Analysis Results:")
     print(bert_sentiment_summary)
 
     # Insert results into PostgreSQL
-    db = PostgreSQL(**sentiment_pg_credentials)
+    db = PostgreSQL(**sentiment_pg_credentials,
+                    league=args.db_name, 
+                    match=args.collection_name,
+                    match_datetime=args.match_date_time)
     db.connect()
     db.insert_data(sentiment_props, 'BagOfWords')
     db.insert_data(textblob_sentiment_summary, 'TextBlob')
