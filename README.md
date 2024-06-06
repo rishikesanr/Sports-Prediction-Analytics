@@ -49,7 +49,7 @@ All you need are just these three inputs:<br><br>
 ```bash
 conda activate sports-analytics
 python3 main.py PremierLeague "Everton vs Liverpool" "2024-04-24 19:00:00"
-python3 main.py mlb "Yankees vs Mets"
+python3 main.py mlb "Yankees vs Mets" "2024-03-25 23:10:00"
 ```
 
 This exploration holds the potential to yield valuable insights that could impact betting outcomes.
