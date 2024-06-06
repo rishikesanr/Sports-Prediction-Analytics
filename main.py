@@ -1,5 +1,6 @@
 import argparse
 from scraping.scraper_reddit import RedditScraper
+from scraping.scraper_results import match_results
 from processing.reddit_processor import RedditProcessor
 from analytics.bagofwords import BagOfWords
 from analytics.textblob_sentiment import TextBlobSentiment
@@ -37,30 +38,35 @@ if __name__ == "__main__":
     Modeling and Prediction to account for small sample size
     '''
 
-    # Analyze using the custom bag of words method
+    # # Analyze using the custom bag of words method
     bag_of_words = BagOfWords()
     sentiment_props = bag_of_words.analyze(data_fans)
     print("\nBag of Words Sentiment Analysis Results:")
     print(sentiment_props)
 
-    # Analyze using textblob data
+    # # Analyze using textblob data
     textblob = TextBlobSentiment()
     textblob_sentiment_summary = textblob.analyze(data_fans)
     print("\nTextblob Sentiment Analysis Results:")
     print(textblob_sentiment_summary)
 
 
-    # Analyze the processed data using BERT Sentiment
+    # # Analyze the processed data using BERT Sentiment
     bert_sentiment = BertSentiment()
     bert_sentiment_summary = bert_sentiment.analyze(data_fans)
     print("\nBERT Sentiment Analysis Results:")
     print(bert_sentiment_summary)
 
+    match_result, scoreline = match_results(args.collection_name, args.match_date_time)
+    print(f"Match Result: {match_result}, Scoreline: {scoreline}")
+
     # Insert results into PostgreSQL
     db = PostgreSQL(**sentiment_pg_credentials,
                     league=args.db_name, 
                     match=args.collection_name,
-                    match_datetime=args.match_date_time)
+                    match_datetime=args.match_date_time,
+                    match_result=match_result,
+                    match_scoreline=scoreline)
     db.connect()
     db.insert_data(sentiment_props, 'BagOfWords')
     db.insert_data(textblob_sentiment_summary, 'TextBlob')
