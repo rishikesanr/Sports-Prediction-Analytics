@@ -19,7 +19,7 @@ class BagOfWords:
         for word, score in sentiment_words.items():
             df_sentiment_scores[word] *= score
 
-        print("\n\mData:",data_fans,"\n\n")
+        # print("\n\mData:",data_fans,"\n\n")
               
         data_fans = pd.concat([data_fans, df_sentiment_scores], axis=1)
         data_fans['sentiment_score'] = data_fans.iloc[:, 2:].sum(axis=1)
@@ -44,7 +44,7 @@ class BagOfWords:
         sentiment_props['%negative'] = sentiment_props['%negative'].fillna(0)
         sentiment_props['%neutral'] = sentiment_props['%neutral'].fillna(0)
 
-        print(sentiment_props)
+        # print(sentiment_props)
         # sentiment_props['win_percentage'] = (sentiment_props['positive'] /sentiment_props['total'] )* 100
         
         # total_win_percentage = sentiment_props['positive'].sum() / sentiment_props['total'].sum() * 100
