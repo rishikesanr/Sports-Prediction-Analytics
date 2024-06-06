@@ -21,3 +21,4 @@ dependencies:
     - python-dotenv
     - huggingface-hub==0.22.2
     - regex==2023.12.25
+    - streamlit==1.35.0
