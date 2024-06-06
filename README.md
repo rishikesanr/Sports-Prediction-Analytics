@@ -43,7 +43,7 @@ conda env create -f ./envs/environment.yml
 
 All you need are just these three inputs:<br><br>
 **League Name**: Make sure this league has a subreddit, and enter the same name. <br>
-**Match Details**: Only enter the teams most called name, for instance United for Manchester United, or just Yankees for New York Yankees etc.<br>
+**Match Details**: Only enter the teams most called name, for instance United for Manchester United, or just Yankees for New York Yankees etc. And make sure the order of team name in the match details is correct, for instance Everton vs Liverpool if Everton are playing at their home, not the other way around.<br>
 **Date & Time**:Enter the date & time (UTC) of the scheduled match, or historical match.<br>
 
 ```bash
