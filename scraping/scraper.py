@@ -7,7 +7,7 @@ class WebsiteScraper:
     def __init__(self, url):
         self.url = url
 
-    #Add a input timeframe function for all the connectors 
+    #Add a input timeframe function for all the connectors (** IMPORTANT **)
     def get_timeframe(self):
         '''
         '''
