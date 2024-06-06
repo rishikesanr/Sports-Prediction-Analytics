@@ -18,7 +18,9 @@ Restart your terminal, and check the miniconda version
 conda --version
 ```
 
--- Absolute must for Reddit scrapping: .env to be created for API credentials (Reddit,.etc). Check docs for more information! 
+-- Absolute must for Reddit scrapping: .env to be created for API credentials (Reddit,.etc). Check docs for more information!<br>
+(In case, you are having difficulties creating a Reddit API credential, please reach out to me so I can give you my .env credetials for testing) <br>
+
 ```
 USER_AGENT=Mozilla/5.0
 CLIENT_ID=***********
@@ -27,7 +29,7 @@ USERNAME=***********
 PASSWORD=***********
 ```
 
-(In case, you are having difficulties creating a Reddit API credential, please reach out to me so I can give you my .env credetials for testing) <br>
+
 
 ### Commands to setup 
 
@@ -39,9 +41,14 @@ conda env create -f ./envs/environment.yml
 
 ### Commands to do the sports prediction
 
+All you need are just these three inputs:<br><br>
+**League Name**: Make sure this league has a subreddit, and enter the same name. <br>
+**Match Details**: Only enter the teams most called name, for instance United for Manchester United, or just Yankees for New York Yankees etc.<br>
+**Date & Time**:Enter the date & time of the scheduled match, or historical match.<br>
+
 ```bash
 conda activate sports-analytics
-python3 main.py PremierLeague "Liverpool vs Brighton"
+python3 main.py PremierLeague "Everton vs Liverpool" "2024-04-24 19:00:00"
 python3 main.py mlb "Yankees vs Mets"
 ```
 

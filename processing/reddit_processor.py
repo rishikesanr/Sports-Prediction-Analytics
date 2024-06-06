@@ -12,11 +12,13 @@ import string
 nltk.download('punkt')
 nltk.download('stopwords')
 nltk.download('wordnet')
+import re
 
 class RedditProcessor:
-    def __init__(self, db_name, collection_name):
+    def __init__(self, db_name, collection_name,match_date_time):
         self.db_name = db_name
-        self.collection_name = f"{collection_name.lower().replace(' ','-')}-{datetime.now().date()}"
+        self.match_date = re.findall(r'(\d{4}-\d{2}-\d{2})',match_date_time)[0]
+        self.collection_name = f"{collection_name.lower().replace(' ','-')}-{self.match_date}"
         # self.collection_name = "arsenal-vs-everton-2024-05-19" # for testing
         self.mongo = MongoDB(self.db_name, self.collection_name)
         self.client, self.db, self.collection = self.mongo.connect()
