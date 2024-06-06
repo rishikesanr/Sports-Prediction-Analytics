@@ -44,7 +44,7 @@ conda env create -f ./envs/environment.yml
 All you need are just these three inputs:<br><br>
 **League Name**: Make sure this league has a subreddit, and enter the same name. <br>
 **Match Details**: Only enter the teams most called name, for instance United for Manchester United, or just Yankees for New York Yankees etc.<br>
-**Date & Time**:Enter the date & time of the scheduled match, or historical match.<br>
+**Date & Time**:Enter the date & time (UTC) of the scheduled match, or historical match.<br>
 
 ```bash
 conda activate sports-analytics
