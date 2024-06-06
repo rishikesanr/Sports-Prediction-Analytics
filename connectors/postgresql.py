@@ -1,13 +1,21 @@
+from datetime import datetime
 import psycopg2
+import pytz
 
 class PostgreSQL:
-    def __init__(self, dbname, user, password, host="localhost", port="5432",table="sentiment_analysis_results"):
+    def __init__(self, dbname, user, password, host="localhost", port="5432",table="sentiment_analysis_results",
+                 league=None,
+                 match=None,
+                    match_datetime=None):
         self.dbname = dbname
         self.user = user
         self.password = password
         self.host = host
         self.port = port
         self.table=table
+        self.league = league
+        self.match=match
+        self.match_datetime = datetime.strptime(match_datetime, '%Y-%m-%d %H:%M:%S').replace(tzinfo=pytz.utc)
         self.conn = None
         self.cursor = None
 
@@ -50,10 +58,10 @@ class PostgreSQL:
             
             self.cursor.execute(f"""
                 INSERT INTO {self.table} 
-                (team, model, total, positive, negative, neutral, percent_positive, percent_negative, percent_neutral) 
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+                (league, match, match_datetime, team, model, total, positive, negative, neutral, percent_positive, percent_negative, percent_neutral) 
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                 """, (
-                team, model_name, total, positive, negative, neutral,
+                self.league, self.match,self.match_datetime, team, model_name, total, positive, negative, neutral,
                 percent_positive, percent_negative, percent_neutral
             ))
         self.conn.commit()
