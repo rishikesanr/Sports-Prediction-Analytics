@@ -41,7 +41,7 @@ conda env create -f ./envs/environment.yml
 
 ### Commands to do the sports prediction
 
-All you need are just these three inputs:<br>
+All you need are just these three inputs:<br><br>
 **League Name**: Make sure this league has a subreddit, and enter the same name. <br>
 **Match Details**: Only enter the teams most called name, for instance United for Manchester United, or just Yankees for New York Yankees etc.<br>
 **Date & Time**:Enter the date & time of the scheduled match, or historical match.<br>
