@@ -58,7 +58,10 @@ python3 main.py mlb "Yankees vs Mets" "2024-03-25 23:10:00"
 
 #### Run with streamlit UI:
 
-![Streamlit UI](images/streamlit1.png)
+![Streamlit UI](images/streamlit1.png) <br>
+![Streamlit UI 2](images/streamlit2.png)
+
+You can start the server by running the below command
 
 ```
 streamlit run ./streamlit.py
