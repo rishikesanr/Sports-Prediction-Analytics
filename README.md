@@ -39,7 +39,11 @@ cd <path-to-current-repository>
 conda env create -f ./envs/environment.yml
 ```
 
-### Commands to do the sports prediction
+### Run the sports prediction and Get the Insights 
+
+You can do it either by running in the backend, and get the results in the MLOps dashboards, or use streamlit to get the insights on the UI, and use MLOps dashboards for other insights.<br><br>
+
+#### Run in the bash:
 
 All you need are just these three inputs:<br><br>
 **League Name**: Make sure this league has a subreddit, and enter the same name. <br>
@@ -52,6 +56,15 @@ python3 main.py PremierLeague "Everton vs Liverpool" "2024-04-24 19:00:00"
 python3 main.py mlb "Yankees vs Mets" "2024-03-25 23:10:00"
 ```
 
+#### Run with streamlit UI:
+
+```
+streamlit run ./streamlit.py
+```
+
+Once the server starts the running, go to the UI, and enter the details, and follow the instructions. <br><br>
+
+
 This exploration holds the potential to yield valuable insights that could impact betting outcomes.
 
 Model 1 - A simple sentiment approach using Bag of Words from Fans
@@ -63,5 +76,5 @@ Model 3 - Fine tuning open LLMs (Llama2, BERT) for sentiment analysis (At the pr
 
 Model 4 - Ensemble of Model 1,2, and 3
 
-A microservices will be followed for the prodcut implementation(MongoDB, PostgresSQL, Grafana(public host), and Airflow). 
+A microservices to be followed for the prodcut implementation(MongoDB, PostgresSQL, Streamlit (UI), Grafana(MLOps), and Airflow for autmoating real time dashboards). 
 

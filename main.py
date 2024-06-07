@@ -8,6 +8,59 @@ from analytics.bert_sentiment import BertSentiment
 from connectors.postgresql import PostgreSQL
 from utils.credentials import sentiment_pg_credentials
 
+
+def run_sentiment_analysis(db_name, collection_name, match_date_time, skip_scraping=False):
+    if not skip_scraping:
+        # Scrape data from Reddit
+        scraper = RedditScraper(db_name, collection_name, match_date_time)
+        scraper.scrape()
+
+    # Process the scraped data
+    processor = RedditProcessor(db_name, collection_name, match_date_time)
+    data_fans = processor.process_data(collection_name)
+
+    # Add debug print to check the structure
+    print(data_fans.head())
+
+    if 'message' not in data_fans.columns:
+        raise ValueError("The 'message' column is missing from the processed data. Check the transformation logic.")
+
+    # Analyze using the custom bag of words method
+    bag_of_words = BagOfWords()
+    sentiment_props_bow = bag_of_words.analyze(data_fans)
+    print(sentiment_props_bow)
+
+    # Analyze using textblob data
+    textblob = TextBlobSentiment()
+    textblob_sentiment_summary = textblob.analyze(data_fans)
+    print(textblob_sentiment_summary)
+
+    # Analyze the processed data using BERT Sentiment
+    bert_sentiment = BertSentiment()
+    bert_sentiment_summary = bert_sentiment.analyze(data_fans)
+    print("BERT Sentiment Analysis Results:")
+    print(bert_sentiment_summary)
+
+    match_result, scoreline = match_results(collection_name, match_date_time)
+    print(f"Match Result: {match_result}, Scoreline: {scoreline}")
+
+    # Insert results into PostgreSQL
+    db = PostgreSQL(**sentiment_pg_credentials,
+                    league=db_name, 
+                    match=collection_name,
+                    match_datetime=match_date_time,
+                    match_result=match_result,
+                    match_scoreline=scoreline)
+    db.connect()
+    db.insert_data(sentiment_props_bow, 'BagOfWords')
+    db.insert_data(textblob_sentiment_summary, 'TextBlob')
+    db.insert_data(bert_sentiment_summary, 'Bert')
+    db.close()
+
+
+    return sentiment_props_bow, textblob_sentiment_summary, bert_sentiment_summary, match_result, scoreline
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Welcome to sports Prediction. Please provide the following arguments to get started. \
                                      Check the docs for more information')
@@ -18,57 +71,4 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    if not args.skip_scraping:
-        # Scrape data from Reddit
-        scraper = RedditScraper(args.db_name, args.collection_name, args.match_date_time)
-        scraper.scrape()
-
-    # Process the scraped data
-    processor = RedditProcessor(args.db_name, args.collection_name,args.match_date_time)
-    data_fans = processor.process_data(args.collection_name)
-
-    # Add debug print to check the structure
-    print("\n",data_fans.head())
-
-    if 'message' not in data_fans.columns:
-        raise ValueError("The 'message' column is missing from the processed data. Check the transformation logic.")
-
-
-    '''
-    Modeling and Prediction to account for small sample size
-    '''
-
-    # # Analyze using the custom bag of words method
-    bag_of_words = BagOfWords()
-    sentiment_props = bag_of_words.analyze(data_fans)
-    print("\nBag of Words Sentiment Analysis Results:")
-    print(sentiment_props)
-
-    # # Analyze using textblob data
-    textblob = TextBlobSentiment()
-    textblob_sentiment_summary = textblob.analyze(data_fans)
-    print("\nTextblob Sentiment Analysis Results:")
-    print(textblob_sentiment_summary)
-
-
-    # # Analyze the processed data using BERT Sentiment
-    bert_sentiment = BertSentiment()
-    bert_sentiment_summary = bert_sentiment.analyze(data_fans)
-    print("\nBERT Sentiment Analysis Results:")
-    print(bert_sentiment_summary)
-
-    match_result, scoreline = match_results(args.collection_name, args.match_date_time)
-    print(f"Match Result: {match_result}, Scoreline: {scoreline}")
-
-    # Insert results into PostgreSQL
-    db = PostgreSQL(**sentiment_pg_credentials,
-                    league=args.db_name, 
-                    match=args.collection_name,
-                    match_datetime=args.match_date_time,
-                    match_result=match_result,
-                    match_scoreline=scoreline)
-    db.connect()
-    db.insert_data(sentiment_props, 'BagOfWords')
-    db.insert_data(textblob_sentiment_summary, 'TextBlob')
-    db.insert_data(bert_sentiment_summary, 'Bert')
-    db.close()
+    run_sentiment_analysis(args.db_name, args.collection_name, args.match_date_time, args.skip_scraping)
