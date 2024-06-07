@@ -58,11 +58,15 @@ python3 main.py mlb "Yankees vs Mets" "2024-03-25 23:10:00"
 
 #### Run with streamlit UI:
 
+![Streamlit UI](images/streamlit1.png)
+
 ```
 streamlit run ./streamlit.py
 ```
 
 Once the server starts the running, go to the UI, and enter the details, and follow the instructions. <br><br>
+
+
 
 
 This exploration holds the potential to yield valuable insights that could impact betting outcomes.
