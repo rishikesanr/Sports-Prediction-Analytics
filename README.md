@@ -85,3 +85,7 @@ Model 4 - Ensemble of Model 1,2, and 3
 
 A microservices to be followed for the prodcut implementation(MongoDB, PostgresSQL, Streamlit (UI), Grafana(MLOps), and Airflow for autmoating real time dashboards). 
 
+#### Application Customer Observability and MLOps in Grafana
+
+![Grafana](images/grafana.png)
+
