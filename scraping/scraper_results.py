@@ -29,7 +29,7 @@ def find_match_winner_and_score(collection_name,match_date):
     
     # Define the search query
     query = f"{collection_name} {match_date} match result espn"
-    print("\n\n",query)
+    # print("\n\n",query)
     # Send a request to Google
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
@@ -37,14 +37,25 @@ def find_match_winner_and_score(collection_name,match_date):
     response = requests.get(f"https://www.google.com/search?q={query}", headers=headers)
     soup = BeautifulSoup(response.text, 'html.parser')
     
-    # Extract the text after "Featured snippet from the web"
-    snippet_div = soup.find(lambda tag: tag.name == "div" and "Featured snippet from the web" in tag.text)
-    if snippet_div:
-        snippet_text = snippet_div.get_text()
+    # # Extract the text after "Featured snippet from the web"
+    # snippet_div = soup.find(lambda tag: tag.name == "div" and "Featured snippet from the web" in tag.text)
+    if soup.text:
+        snippet_text = soup.text
         # print("\n\n",snippet_text)
         # Use regex to extract the result string
-        result_pattern = re.compile(r'(\w+\s\d+-\d+\s\w+\s\(\w+\s\d+,\s\d+\)\sFinal Score - ESPN\.)')
-        match = result_pattern.search(snippet_text)
+        patterns = [
+            r'(\w+\s\d+-\d+\s\w+\s\(\w+\s\d+,\s\d+\)\sFinal Score - ESPN\.)',
+            r'([A-Za-z\s]+\d+-\d+\s[A-Za-z\s]+\(\w+\s\d+,\s\d+\)\sFinal\sScore\s-\sESPN)',
+            r'([A-Za-z\s]+\d+-\d+\s[A-Za-z\s]+\(\w+\s\d+,\s\d+\)\sFinal ScoreESPN)'
+        ]
+
+        # Try each pattern until one matches
+        match = None
+        for pattern in patterns:
+            result_pattern = re.compile(pattern)
+            match = result_pattern.search(snippet_text)
+            if match:
+                break
 
         if match:
             result_str = match.group(1)

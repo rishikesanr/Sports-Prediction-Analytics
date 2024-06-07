@@ -76,5 +76,5 @@ Model 3 - Fine tuning open LLMs (Llama2, BERT) for sentiment analysis (At the pr
 
 Model 4 - Ensemble of Model 1,2, and 3
 
-A microservices will be followed for the prodcut implementation(MongoDB, PostgresSQL, Grafana(public host), and Airflow). 
+A microservices to be followed for the prodcut implementation(MongoDB, PostgresSQL, Streamlit (UI), Grafana(MLOps), and Airflow for autmoating real time dashboards). 
 
