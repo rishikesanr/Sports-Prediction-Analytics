@@ -79,7 +79,7 @@ Model 1 - A simple sentiment approach using Bag of Words from Fans
 
 Model 2 - Applying PyTorch/TextBlob frameworks for generating sentiment scores
 
-Model 3 - Fine tuning open LLMs (Llama2, BERT) for sentiment analysis (At the present, a non-trained BERT model in implemented using a untrained classifier)
+Model 3 - Fine tuning open LLMs (Llama2, BERT) for sentiment analysis (At the present, a fine-tuned BERT model in implemented using a untrained classifier)
 
 Model 4 - Ensemble of Model 1,2, and 3
 
